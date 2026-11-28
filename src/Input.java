@@ -78,4 +78,56 @@ public class Input {
         }
     }
 
+    public static String readOptionalDecimal(String prompt){
+
+        while(true){
+
+            String s = readLine(prompt);
+
+            // if left blank current value is kept
+            if(s.isEmpty()){
+
+                return "";
+            }
+            try{
+
+                if(new BigDecimal(s).signum() >= 0){
+
+                    return s;
+
+                }
+
+                System.out.println("Must be 0 or more.");
+            }
+            catch(NumberFormatException e){
+
+                System.out.println("Please enter a valid number!");
+            }
+        }
+    }
+
+    public static String readOptionalChoice(String prompt, String... options){
+
+        while(true){
+
+            String s = readLine(prompt + " " + Arrays.toString(options) + ": ");
+
+            // if blank keep current value
+
+            if(s.isEmpty()){
+
+                return "";
+            }
+
+            for(String o : options){
+
+                if(o.equalsIgnoreCase(s)){
+
+                    return o;
+                }
+            }
+
+            System.out.println("Please choose one of the options: " + String.join(", ", options));
+        }
+    }
 }

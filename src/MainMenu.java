@@ -5,6 +5,8 @@ public class MainMenu {
 
     public void start(){
 
+        Menu_Item_Table.createTable();
+
         while(true){
 
             System.out.println("\n --- MAIN MENU: RESTAURANT TABLES ---");
@@ -20,7 +22,22 @@ public class MainMenu {
 
                 case 1:
 
+                    new Menu_Item_Table().menu();
 
+                    break;
+
+                case 2:
+
+
+                case 6:
+
+                    System.out.println("Thank you for using the Database!");
+
+                    return;
+
+                default:
+
+                    System.out.println("Invalid choice!");
             }
         }
     }
